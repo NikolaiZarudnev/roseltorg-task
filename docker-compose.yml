@@ -1,0 +1,16 @@
+version: '3'
+services:
+    postgres:
+        image: postgres:latest
+        deploy:
+            restart_policy:
+                condition: any
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./docker/postgres/data:/var/lib/postgres
+        environment:
+            POSTGRES_ROOT_PASSWORD: root
+            POSTGRES_DATABASE: app
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: user
